@@ -8,6 +8,7 @@
 		<result column="project_id" property="projectId" />
 		<result column="group_id" property="groupId" />
 	    <result column="name" property="name" />
+	    <result column="description" property="description" />
 		<result column="status" property="status" />
 		<result column="star_level" property="starLevel" />
 		<result column="request_url" property="requestUrl" />
@@ -15,7 +16,6 @@
 		<result column="request_headers" property="requestHeaders" />
 		<result column="query_params" property="queryParams" />
 		<result column="response_params" property="responseParams" />
-		<result column="response_datatype_id" property="responseDatatypeId" />
 		<result column="success_resp_type" property="successRespType" />
 		<result column="success_resp_example" property="successRespExample" />
 		<result column="fail_resp_type" property="failRespType" />
@@ -30,6 +30,7 @@
 		t.`project_id`,
 		t.`group_id`,
 		t.`name`,
+		t.`description`,
 		t.`status`,
 		t.`star_level`,
 		t.`request_url`,
@@ -37,7 +38,6 @@
 		t.`request_headers`,
 		t.`query_params`,
 		t.`response_params`,
-		t.`response_datatype_id`,
 		t.`success_resp_type`,
 		t.`success_resp_example`,
 		t.`fail_resp_type`,
@@ -52,6 +52,7 @@
 			`project_id`,
 			`group_id`,
 			`name`,
+			`description`,
 			`status`,
 			`star_level`,
 			`request_url`,
@@ -59,7 +60,6 @@
 			`request_headers`,
 			`query_params`,
 			`response_params`,
-			`response_datatype_id`,
 			`success_resp_type`,
 			`success_resp_example`,
 			`fail_resp_type`,
@@ -71,6 +71,7 @@
 			#{projectId},
 			#{groupId},
 			#{name},
+			#{description},
 			#{status},
 			#{starLevel},
 			#{requestUrl},
@@ -78,7 +79,6 @@
 			#{requestHeaders},
 			#{queryParams},
 			#{responseParams},
-			#{responseDatatypeId},
 			#{successRespType},
 			#{successRespExample},
 			#{failRespType},
@@ -94,6 +94,7 @@
 		SET
 			`group_id` = #{groupId},
 			`name` = #{name},
+			`description` = #{description},
 			`status` = #{status},
 			`star_level` = #{starLevel},
 			`request_url` = #{requestUrl},
@@ -101,7 +102,6 @@
 			`request_headers` = #{requestHeaders},
 			`query_params` = #{queryParams},
 			`response_params` = #{responseParams},
-			`response_datatype_id` = #{responseDatatypeId},
 			`success_resp_type` = #{successRespType},
 			`success_resp_example` = #{successRespExample},
 			 `fail_resp_type` = #{failRespType},
@@ -138,12 +138,6 @@
 		SELECT <include refid="Base_Column_List" />
 		FROM xxl_api_document AS t
 		WHERE t.group_id = #{groupId}
-	</select>
-
-	<select id="findByResponseDataTypeId" parameterType="java.lang.Integer" resultMap="XxlApiDocument">
-		SELECT <include refid="Base_Column_List" />
-		FROM xxl_api_document AS t
-		WHERE t.response_datatype_id = #{responseDatatypeId}
 	</select>
 
 </mapper>

@@ -1,38 +1,10 @@
 
-CREATE TABLE `xxl_api_biz` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `biz_name` varchar(50) NOT NULL COMMENT '业务线名称',
-  `order` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE `xxl_api_datatype` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL COMMENT '数据类型名称',
-  `about` varchar(200) DEFAULT NULL COMMENT '数据类型描述',
-  `biz_id` int(11) NOT NULL COMMENT '业务线ID，为0表示公共',
-  `owner` varchar(100) DEFAULT NULL COMMENT '负责人',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE `xxl_api_datatype_fileds` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `parent_datatype_id` int(11) NOT NULL COMMENT '所属，数据类型ID',
-  `field_name` varchar(100) NOT NULL COMMENT '字段名称',
-  `field_about` varchar(200) DEFAULT NULL COMMENT '字段描述',
-  `field_datatype_id` int(11) NOT NULL COMMENT '字段数据类型ID',
-  `field_type` tinyint(4) NOT NULL COMMENT '字段形式：0=默认、1=数组',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 CREATE TABLE `xxl_api_document` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `project_id` int(11) NOT NULL COMMENT '项目ID',
   `group_id` int(11) NOT NULL COMMENT '分组ID',
   `name` varchar(50) NOT NULL COMMENT '接口名称',
+  `description` varchar(50) NOT NULL COMMENT '接口描述',
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态：0-启用、1-维护、2-废弃',
   `star_level` tinyint(4) NOT NULL COMMENT '星标等级：0-普通接口、1-一星接口',
   `request_url` varchar(100) NOT NULL COMMENT 'Request URL：相对地址',
@@ -40,7 +12,6 @@ CREATE TABLE `xxl_api_document` (
   `request_headers` text COMMENT 'Request Headers：Map-JSON格式字符串',
   `query_params` text COMMENT 'Query String Parameters：VO-JSON格式字符串',
   `response_params` text COMMENT 'Response Parameters：VO-JSON格式字符串',
-  `response_datatype_id` int(11) NOT NULL DEFAULT '0' COMMENT '响应数据类型ID',
   `success_resp_type` varchar(50) NOT NULL COMMENT 'Response Content-type：成功接口，如JSON、XML、HTML、TEXT、JSONP',
   `success_resp_example` text COMMENT 'Response Content：成功接口',
   `fail_resp_type` varchar(255) NOT NULL COMMENT 'Response Content-type：失败接口',
@@ -79,7 +50,7 @@ CREATE TABLE `xxl_api_project` (
   `base_url_product` varchar(200) NOT NULL COMMENT '跟地址：线上环境',
   `base_url_ppe` varchar(200) DEFAULT NULL COMMENT '跟地址：预发布环境',
   `base_url_qa` varchar(200) DEFAULT NULL COMMENT '跟地址：测试环境',
-  `biz_id` int(11) NOT NULL DEFAULT '0' COMMENT '业务线ID',
+  `version` varchar(50) NOT NULL COMMENT '版本',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -107,6 +78,8 @@ CREATE TABLE `xxl_api_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+insert into `xxl_api_user` ( `username`, `password`, `type`, `realname`) values ( 'admin', '123456', '1', '管理员');
+
 
 CREATE TABLE `xxl_api_user_permission` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -115,17 +88,3 @@ CREATE TABLE `xxl_api_user_permission` (
   `add_time` datetime NOT NULL COMMENT '新增时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-INSERT INTO `xxl_api_user` VALUES ('1', 'admin', '123456', '1', '管理员');
-
-INSERT INTO `xxl_api_datatype` VALUES
-('1', 'String', '字符串类型', '0', null),
-('2', 'Integer', '数字整型', '0', null),
-('3', 'Short', '短整型', '0', null),
-('4', 'Long', '长整型', '0', null),
-('5', 'Float', '单精度浮点数', '0', null),
-('6', 'Double', '双精度浮点数', '0', null),
-('7', 'Boolean', '布尔类型', '0', null),
-('8', 'DATE', '日期类型，格式“yyyy-MM-mm”', '0', null),
-('9', 'DATETIME', '日期类型，格式“yyyy-MM-mm HH:mm:ss”', '0', null);

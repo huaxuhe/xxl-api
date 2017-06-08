@@ -11,13 +11,13 @@ public class XxlApiDocument {
     private int projectId;              // 项目ID
     private int groupId;                // 分组ID
     private String name;                // 接口名称
+    private String description;         // 接口描述
     private int status;                 // 状态：0-启用、1-维护、2-废弃
     private int starLevel;              // 星标等级：0-普通接口、1-一星接口
     private String requestUrl;          // Request URL：相对地址
     private String requestMethod;       // Request Method：如POST、GET
     private String requestHeaders;      // Request Headers：Map-JSON格式字符串
     private String queryParams;         // Query String Parameters：VO-JSON格式字符串
-    private int responseDatatypeId;     // 响应数据类型ID
     private String responseParams;      // Response Parameters：VO-JSON格式字符串
     private String successRespType;     // Response Content-type：成功接口，如JSON、XML、HTML、TEXT
     private String successRespExample;  // Response Content：成功接口
@@ -58,8 +58,16 @@ public class XxlApiDocument {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String getDescription() {
+		return description;
+	}
 
-    public int getStatus() {
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getStatus() {
         return status;
     }
 
@@ -113,14 +121,6 @@ public class XxlApiDocument {
 
     public void setResponseParams(String responseParams) {
         this.responseParams = responseParams;
-    }
-
-    public int getResponseDatatypeId() {
-        return responseDatatypeId;
-    }
-
-    public void setResponseDatatypeId(int responseDatatypeId) {
-        this.responseDatatypeId = responseDatatypeId;
     }
 
     public String getSuccessRespType() {
