@@ -164,6 +164,7 @@ $(function() {
 				$('#queryParams_parent').find('.queryParams_item').each(function () {
 					var notNull = $(this).find('.notNull').val();
 					var type = $(this).find('.type').val();
+					var val = $(this).find('.val').val();
 					var name = $(this).find('.name').val();
 					var desc = $(this).find('.desc').val();
 					if (name) {
@@ -171,6 +172,7 @@ $(function() {
 							'notNull':notNull,
 							'type':type,
 							'name':name,
+							'val':val,
 							'desc':desc
 						});
 					} else {
@@ -189,6 +191,7 @@ $(function() {
 				$('#responseParams_parent').find('.responseParams_item').each(function () {
 					var notNull = $(this).find('.notNull').val();
 					var type = $(this).find('.type').val();
+					var val = $(this).find('.val').val();
 					var name = $(this).find('.name').val();
 					var desc = $(this).find('.desc').val();
 					if (name) {
@@ -196,6 +199,7 @@ $(function() {
 							'notNull':notNull,
 							'type':type,
 							'name':name,
+							'val':val,
 							'desc':desc
 						});
 					} else {

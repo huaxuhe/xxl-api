@@ -55,7 +55,7 @@
 <#macro commonHeader>
 	<header class="main-header">
 		<a href="${request.contextPath}/" class="logo">
-			<span class="logo-mini"><b></b>XXL</span>
+			<span class="logo-mini"><b></b>API</span>
 			<span class="logo-lg"><b></b>API管理平台</span>
 		</a>
 		<nav class="navbar navbar-static-top" role="navigation">
@@ -85,7 +85,7 @@
 				<#if XXL_API_LOGIN_IDENTITY.type == 1>
                     <li class="nav-click <#if pageName == "userList">active</#if>" ><a href="${request.contextPath}/user"><i class="fa fa-circle-o text-red"></i> <span>用户管理</span></a></li>
 				</#if>
-				<li class="nav-click <#if pageName == "help">active</#if>" ><a href="${request.contextPath}/help"><i class="fa fa-circle-o text-red"></i><span>使用教程</span></a></li>
+				<li class="nav-click <#if pageName == "help">active</#if>" ><a href="https://github.com/huaxuhe/xxl-api#三项目管理" target="_blank"><i class="fa fa-circle-o text-red"></i><span>使用教程</span></a></li>
 			</ul>
 		</section>
 		<!-- /.sidebar -->
@@ -94,11 +94,10 @@
 
 <#macro commonFooter >
 	<footer class="main-footer">
-        Powered by <b>XXL-API</b> 1.0
+        Powered by <b>XXL-API</b>&nbsp1.0
 		<div class="pull-right hidden-xs">
-            <strong>Copyright &copy; 2015-${.now?string('yyyy')} &nbsp;
-                <a href="https://github.com/xuxueli/xxl-api" target="_blank" >github</a>&nbsp;
-                <a href="http://my.oschina.net/xuxueli/blog/666" target="_blank" >oschina</a>
+            <strong>Copyright &copy; 2015-${.now?string('yyyy')} Modify Source From&nbsp;
+                <a href="https://github.com/huaxuhe/xxl-api" target="_blank" >github</a>&nbsp;
             </strong><!-- All rights reserved. -->
 		</div>
 	</footer>

@@ -15,18 +15,18 @@
 			<div class="login-box-body">
 				<p class="login-box-msg">API管理平台</p>
 				<div class="form-group has-feedback">
-	            	<input type="text" name="userName" class="form-control" placeholder="请输入登陆账号" value="admin" >
+	            	<input type="text" name="userName" class="form-control" placeholder="请输入登陆账号(姓名全拼)" value="" >
 	            	<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 	          	<div class="form-group has-feedback">
-	            	<input type="password" name="password" class="form-control" placeholder="请输入登陆密码" value="123456" >
+	            	<input type="password" name="password" class="form-control" placeholder="请输入登陆密码(默认123456)" value="" >
 	            	<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 	          	</div>
 				<div class="row">
 					<div class="col-xs-8">
 		              	<div class="checkbox icheck">
 		                	<label>
-		                  		<input type="checkbox" name="ifRemember" > Remember Me
+		                  		<input type="checkbox" name="ifRemember" checked> Remember Me
 		                	</label>
 						</div>
 		            </div><!-- /.col -->

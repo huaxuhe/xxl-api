@@ -23,6 +23,7 @@ public class XxlApiDocument {
     private String successRespExample;  // Response Content：成功接口
     private String failRespType;        // Response Content-type：失败接口
     private String failRespExample;     // Response Content：失败接口
+    private String testUrl;              // 测试URL
     private String remark;              // 备注
     private Date addTime;               // 创建时间
     private Date updateTime;            // 更新时间
@@ -154,8 +155,16 @@ public class XxlApiDocument {
     public void setFailRespExample(String failRespExample) {
         this.failRespExample = failRespExample;
     }
+    
+    public String getTestUrl() {
+		return testUrl;
+	}
 
-    public String getRemark() {
+	public void setTestUrl(String testUrl) {
+		this.testUrl = testUrl;
+	}
+
+	public String getRemark() {
         return remark;
     }
 

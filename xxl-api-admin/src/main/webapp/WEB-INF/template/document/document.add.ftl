@@ -142,6 +142,10 @@
                             <div class="col-sm-2 item">
                                 <input type="text" class="form-control name">
                             </div>
+                            <label class="col-sm-1 control-label">参考值</label>
+                            <div class="col-sm-2 item">
+                                <input type="text" class="form-control val">
+                            </div>
                             <label class="col-sm-1 control-label">参数说明</label>
                             <div class="col-sm-2 item">
                                 <input type="text" class="form-control desc">
@@ -151,39 +155,6 @@
                     </div>
 
                     <div class="box-body" id="queryParams_parent" >
-                    </div>
-                </div>
-
-                <#--响应结果-->
-                <div class="nav-tabs-custom">
-                    <!-- Tabs within a box -->
-                    <ul class="nav nav-tabs pull-right">
-                        <li><a href="#fail_resp" data-toggle="tab">失败响应结果</a></li>
-                        <li class="active"><a href="#success_resp" data-toggle="tab">成功响应结果</a></li>
-                        <li class="pull-left header">响应结果</li>
-                    </ul>
-                    <div class="tab-content no-padding">
-                        <!-- Morris chart - Sales -->
-                        <div class="chart tab-pane active" id="success_resp" style="position: relative; height: 365px;">
-                            <div class="box-body">
-                                响应数据类型(MIME)：
-                                <#list ResponseContentType as item>
-                                    <input type="radio" class="iCheck" name="successRespType" value="${item}" <#if item_index==0>checked</#if> >${item}  &nbsp;&nbsp;
-                                </#list>
-                                <br>
-                                <textarea name="successRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" ></textarea>
-                            </div>
-                        </div>
-                        <div class="chart tab-pane" id="fail_resp" style="position: relative; height: 365px;">
-                            <div class="box-body">
-                                响应数据类型(MIME)：
-                                <#list ResponseContentType as item>
-                                    <input type="radio" class="iCheck" name="failRespType" value="${item}" <#if item_index==0>checked</#if> >${item}  &nbsp;&nbsp;
-                                </#list>
-                                <br>
-                                <textarea name="failRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" ></textarea>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -216,6 +187,10 @@
                             <div class="col-sm-2 item">
                                 <input type="text" class="form-control name">
                             </div>
+                            <label class="col-sm-1 control-label">参考值</label>
+                            <div class="col-sm-2 item">
+                                <input type="text" class="form-control val">
+                            </div>
                             <label class="col-sm-1 control-label">参数说明</label>
                             <div class="col-sm-2 item">
                                 <input type="text" class="form-control desc">
@@ -227,6 +202,39 @@
                     <div class="box-body" id="responseParams_parent" >
                     </div>
                 </div>
+                
+                <#--响应结果-->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li><a href="#fail_resp" data-toggle="tab">失败响应结果</a></li>
+                        <li class="active"><a href="#success_resp" data-toggle="tab">成功响应结果</a></li>
+                        <li class="pull-left header">响应结果</li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="success_resp" style="position: relative; height: 365px;">
+                            <div class="box-body">
+                                响应数据类型(MIME)：
+                                <#list ResponseContentType as item>
+                                    <input type="radio" class="iCheck" name="successRespType" value="${item}" <#if item_index==0>checked</#if> >${item}  &nbsp;&nbsp;
+                                </#list>
+                                <br>
+                                <textarea name="successRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" ></textarea>
+                            </div>
+                        </div>
+                        <div class="chart tab-pane" id="fail_resp" style="position: relative; height: 365px;">
+                            <div class="box-body">
+                                响应数据类型(MIME)：
+                                <#list ResponseContentType as item>
+                                    <input type="radio" class="iCheck" name="failRespType" value="${item}" <#if item_index==0>checked</#if> >${item}  &nbsp;&nbsp;
+                                </#list>
+                                <br>
+                                <textarea name="failRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" ></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
 
                 <#-- 接口备注 -->
                 <div class="box box-primary">

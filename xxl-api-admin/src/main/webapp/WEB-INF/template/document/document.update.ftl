@@ -76,9 +76,13 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">接口名称</label>
-                            <div class="col-sm-11">
+                            <div class="col-sm-4">
                                 <input type="text" class="form-control" name="name" value="${document.name}" placeholder="请输入接口名称" maxlength="50" >
                             </div>
+                            <label class="col-sm-1 control-label">接口描述</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="description" value="${document.description}" placeholder="尽量简单易读，20字以内，更多的信息写在接口备注" maxlength="100" >
+                            </div>                    
                         </div>
                     </div>
                 </div>
@@ -166,6 +170,10 @@
                             <div class="col-sm-2 item">
                                 <input type="text" class="form-control name">
                             </div>
+                            <label class="col-sm-1 control-label">参考值</label>
+                            <div class="col-sm-2 item">
+                                <input type="text" class="form-control val">
+                            </div>
                             <label class="col-sm-1 control-label">参数说明</label>
                             <div class="col-sm-3 item">
                                 <input type="text" class="form-control desc">
@@ -196,6 +204,10 @@
                                     <div class="col-sm-2 item">
                                         <input type="text" class="form-control name" value="${queryParam.name}" >
                                     </div>
+                                    <label class="col-sm-1 control-label">参考值</label>
+                                    <div class="col-sm-2 item">
+                                        <input type="text" class="form-control val" value="${queryParam.val}" >
+                                    </div>
                                     <label class="col-sm-1 control-label">参数说明</label>
                                     <div class="col-sm-2 item">
                                         <input type="text" class="form-control desc" value="${queryParam.desc}" >
@@ -204,39 +216,6 @@
                                 </div>
                             </#list>
                         </#if>
-                    </div>
-                </div>
-
-                <#--响应结果-->
-                <div class="nav-tabs-custom">
-                    <!-- Tabs within a box -->
-                    <ul class="nav nav-tabs pull-right">
-                        <li><a href="#fail_resp" data-toggle="tab">失败响应结果</a></li>
-                        <li class="active"><a href="#success_resp" data-toggle="tab">成功响应结果</a></li>
-                        <li class="pull-left header">响应结果</li>
-                    </ul>
-                    <div class="tab-content no-padding">
-                        <!-- Morris chart - Sales -->
-                        <div class="chart tab-pane active" id="success_resp" style="position: relative; height: 365px;">
-                            <div class="box-body">
-                                响应数据类型(MIME)：
-                                <#list ResponseContentType as item>
-                                    <input type="radio" class="iCheck" name="successRespType" value="${item}" <#if document.successRespType==item>checked</#if> >${item}  &nbsp;&nbsp;
-                                </#list>
-                                <br>
-                                <textarea name="successRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" >${document.successRespExample}</textarea>
-                            </div>
-                        </div>
-                        <div class="chart tab-pane" id="fail_resp" style="position: relative; height: 365px;">
-                            <div class="box-body">
-                                响应数据类型(MIME)：
-                                <#list ResponseContentType as item>
-                                    <input type="radio" class="iCheck" name="failRespType" value="${item}" <#if document.failRespType==item>checked</#if> >${item}  &nbsp;&nbsp;
-                                </#list>
-                                <br>
-                                <textarea name="failRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" >${document.failRespExample}</textarea>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -299,6 +278,10 @@
                                     <div class="col-sm-2 item">
                                         <input type="text" class="form-control name" value="${responseParam.name}" >
                                     </div>
+                                    <label class="col-sm-1 control-label">参考值</label>
+                                    <div class="col-sm-2 item">
+                                        <input type="text" class="form-control val" value="${responseParam.val}" >
+                                    </div>
                                     <label class="col-sm-1 control-label">参数说明</label>
                                     <div class="col-sm-2 item">
                                         <input type="text" class="form-control desc" value="${responseParam.desc}" >
@@ -307,6 +290,39 @@
                                 </div>
                             </#list>
                         </#if>
+                    </div>
+                </div>
+
+                <#--响应结果-->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs pull-right">
+                        <li><a href="#fail_resp" data-toggle="tab">失败响应结果</a></li>
+                        <li class="active"><a href="#success_resp" data-toggle="tab">成功响应结果</a></li>
+                        <li class="pull-left header">响应结果</li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="success_resp" style="position: relative; height: 365px;">
+                            <div class="box-body">
+                                响应数据类型(MIME)：
+                                <#list ResponseContentType as item>
+                                    <input type="radio" class="iCheck" name="successRespType" value="${item}" <#if document.successRespType==item>checked</#if> >${item}  &nbsp;&nbsp;
+                                </#list>
+                                <br>
+                                <textarea name="successRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" >${document.successRespExample}</textarea>
+                            </div>
+                        </div>
+                        <div class="chart tab-pane" id="fail_resp" style="position: relative; height: 365px;">
+                            <div class="box-body">
+                                响应数据类型(MIME)：
+                                <#list ResponseContentType as item>
+                                    <input type="radio" class="iCheck" name="failRespType" value="${item}" <#if document.failRespType==item>checked</#if> >${item}  &nbsp;&nbsp;
+                                </#list>
+                                <br>
+                                <textarea name="failRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" >${document.failRespExample}</textarea>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

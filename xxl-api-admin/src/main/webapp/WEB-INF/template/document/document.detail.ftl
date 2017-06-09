@@ -85,8 +85,12 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1">接口名称</label>
-                            <div class="col-sm-11">
+                            <div class="col-sm-4">
                                 <a>${document.name}</a>
+                            </div>
+                            <label class="col-sm-1">接口名称</label>
+                            <div class="col-sm-6">
+                                <a>${document.description}</a>
                             </div>
                         </div>
                     </div>
@@ -127,20 +131,22 @@
                         <#if queryParamList?exists>
                             <table class="table table-striped">
                                 <tr>
-                                    <th style="width: 25%;" >是否必填</th>
-                                    <th style="width: 25%;" >参数类型</th>
-                                    <th style="width: 25%;" >参数名称</th>
+                                    <th style="width: 15%;" >参数名称</th>
+                                    <th style="width: 15%;" >是否必填</th>
+                                    <th style="width: 15%;" >参数类型</th>
+                                    <th style="width: 15%;" >参考值</th>
                                     <th style="width: 25%;" >参数说明</th>
                                 </tr>
                                 <#list queryParamList as queryParam>
                                     <tr>
+                                        <td>${queryParam.name}</td>
                                         <td>
                                             <#if queryParam.notNull == "true" >必填
                                             <#else>非必填
                                             </#if>
                                         </td>
                                         <td>${queryParam.type}</td>
-                                        <td>${queryParam.name}</td>
+                                        <td>${queryParam.val}</td>
                                         <td>${queryParam.desc}</td>
                                     </tr>
                                 </#list>
@@ -148,6 +154,40 @@
                         </#if>
                     </div>
                 </div>
+
+                <#--响应结果参数-->
+                <#if responseParamList?exists && responseParamList?size gt 0 >
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">响应结果参数</h3>
+                        </div>
+
+                        <div class="box-body no-padding" >
+                            <table class="table table-striped">
+                                <tr>
+                                    <th style="width: 15%;" >参数名称</th>
+                                    <th style="width: 15%;" >是否必填</th>
+                                    <th style="width: 15%;" >参数类型</th>
+                                    <th style="width: 15%;" >参考值</th>
+                                    <th style="width: 25%;" >参数说明</th>
+                                </tr>
+                                <#list responseParamList as responseParam>
+                                    <tr>
+                                        <td>${responseParam.name}</td>
+                                        <td>
+                                            <#if responseParam.notNull == "true" >非空
+                                            <#else>可空
+                                            </#if>
+                                        </td>
+                                        <td>${responseParam.type}</td>
+                                        <td>${responseParam.val}</td>
+                                        <td>${responseParam.desc}</td>
+                                    </tr>
+                                </#list>
+                            </table>
+                        </div>
+                    </div>
+                </#if>
 
                 <#--响应结果-->
                 <div class="nav-tabs-custom">
@@ -174,39 +214,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <#--响应结果参数-->
-                <#if responseParamList?exists && responseParamList?size gt 0 >
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">响应结果参数</h3>
-                        </div>
-
-                        <div class="box-body no-padding" >
-                            <table class="table table-striped">
-                                <tr>
-                                    <th style="width: 25%;" >是否必填</th>
-                                    <th style="width: 25%;" >参数类型</th>
-                                    <th style="width: 25%;" >参数名称</th>
-                                    <th style="width: 25%;" >参数说明</th>
-                                </tr>
-                                <#list responseParamList as responseParam>
-                                    <tr>
-                                        <td>
-                                            <#if responseParam.notNull == "true" >非空
-                                            <#else>可空
-                                            </#if>
-                                        </td>
-                                        <td>${responseParam.type}</td>
-                                        <td>${responseParam.name}</td>
-                                        <td>${responseParam.desc}</td>
-                                    </tr>
-                                </#list>
-                            </table>
-                        </div>
-                    </div>
-                </#if>
+                </div>                
 
                 <#-- 接口备注 -->
                 <#if document.remark?exists && document.remark?length gt 0 >
@@ -219,9 +227,20 @@
                         </div>
                     </div>
                 </#if>
+                
+                <#-- 测试URL -->
+                <#if document.testUrl?exists && document.testUrl?length gt 0 >
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">测试URL</h3>
+                        </div>
+                        <div class="box-body" >
+                            <div class="box-body pad" id="testUrl" >${document.testUrl}</div>
+                        </div>
+                    </div>
+                </#if>
 
-
-                <#--Mock数据-->
+                <#--Mock数据
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Mock数据</h3>
@@ -250,9 +269,9 @@
                             </#list>
                         </table>
                     </div>
-                </div>
+                </div>-->
 
-                <#--Test历史-->
+                <#--Test历史
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">Test历史</h3>
@@ -278,7 +297,7 @@
                             </#list>
                         </table>
                     </div>
-                </div>
+                </div>-->
 
 
             </form>

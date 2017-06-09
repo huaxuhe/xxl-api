@@ -107,11 +107,12 @@
                                     <thead>
                                         <tr>
                                             <th width="4%" ><i class="fa fa-star text-yellow"></i></th>
-                                            <th width="25%" >接口名称</th>
-                                            <th width="25%" >接口URL</th>
+                                            <th width="22%" >接口名称</th>
+                                            <th width="20%" >接口描述</th>
+                                            <th width="15%" >接口URL</th>
                                             <th width="15%" >分组</th>
-                                            <th width="17%" >更新日期</th>
-                                            <th width="7%" >操作</th>
+                                            <th width="10%" >更新日期</th>
+                                            <th width="10%" >操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -130,8 +131,12 @@
                                                         <#elseif document.status==1><i class="fa fa-circle-o text-yellow"></i>
                                                         <#else><i class="fa fa-circle-o text-light-gray"></i></#if>
                                                         <a href="${request.contextPath}/document/detailPage?id=${document.id}" target="_blank" >
-                                                            <#if document.name?length gt 12>${document.name?substring(0, 12)}<#else>${document.name}</#if>
+                                                            <!--<#if document.name?length gt 12>${document.name?substring(0, 12)}<#else>${document.name}</#if>-->
+                                                            ${document.name}
                                                         </a>
+                                                    </td>
+                                                    <td class="mailbox-name" title="${document.description}" >
+                                                    ${document.description}
                                                     </td>
                                                     <td class="mailbox-attachment" title="${document.requestUrl}" >
                                                         <span class="label label-success">${document.requestMethod}</span>&nbsp;&nbsp;<#if document.requestUrl?length gt 25>${document.requestUrl?substring(0, 25)}...<#else>${document.requestUrl}</#if>

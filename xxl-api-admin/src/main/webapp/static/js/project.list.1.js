@@ -70,9 +70,9 @@ $(function() {
 								' baseUrlQa="'+row.baseUrlQa +'" '+
 								' version="'+row.version +'" '+
 								'>'+
+						    '<button class="btn btn-info btn-xs" type="button" onclick="javascript:window.open(\'' + goUrl + '\')" >进入项目</button>'+
 							'<button class="btn btn-warning btn-xs update" type="button">编辑</button>  '+
 							'<button class="btn btn-danger btn-xs delete" type="button">删除</button>  <br>'+
-							'<button class="btn btn-info btn-xs" type="button" onclick="javascript:window.open(\'' + goUrl + '\')" >进入项目</button>  '+
 							'</p>';
 
 						return html;
@@ -113,23 +113,25 @@ $(function() {
 	// job operate
 	$("#project_list").on('click', '.delete',function() {
 		var id = $(this).parent('p').attr("id");
-		ComConfirm.show("确认删除该项目?", function(){
-			$.ajax({
-				type : 'POST',
-				url : base_url + "/project/delete",
-				data : {
-					"id" : id
-				},
-				dataType : "json",
-				success : function(data){
-					if (data.code == 200) {
-						ComAlert.show(1, "删除成功", function(){
-							window.location.reload();
-						});
-					} else {
-						ComAlert.show(2, (data.msg || "删除失败") );
-					}
-				},
+		ComConfirm.show("注意啦!!!注意啦!!!-确认删除该项目?", function(){
+			ComConfirm.show("确认删除该项目?", function(){
+				$.ajax({
+					type : 'POST',
+					url : base_url + "/project/delete",
+					data : {
+						"id" : id
+					},
+					dataType : "json",
+					success : function(data){
+						if (data.code == 200) {
+							ComAlert.show(1, "删除成功", function(){
+								window.location.reload();
+							});
+						} else {
+							ComAlert.show(2, (data.msg || "删除失败") );
+						}
+					},
+				});
 			});
 		});
 	});

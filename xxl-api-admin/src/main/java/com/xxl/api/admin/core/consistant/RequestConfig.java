@@ -57,16 +57,26 @@ public class RequestConfig {
      */
     public enum  QueryParamTypeEnum {
 
+    	/*STRING("string"),
+    	BOOLEAN("boolean"),
+    	SHORT("short"),
+    	INT("int"),
+    	LONG("long"),
+    	FLOAT("float"),
+    	DOUBLE("double"),
+    	DATE("date"),
+    	DATETIME("datetime"),
+    	JSON("json"),
+    	BYTE("byte");*/
         STRING("string"),
-        BOOLEAN("boolean"),
-        SHORT("short"),
         INT("int"),
         LONG("long"),
-        FLOAT("float"),
         DOUBLE("double"),
+        BOOLEAN("boolean"),
         DATE("date"),
         DATETIME("datetime"),
-        JSON("json"),
+        ARRAY("array"),
+        OBJECT("object"),
         BYTE("byte");
 
         public String title;
