@@ -150,7 +150,7 @@
                                                     </td>
                                                     <td class="mailbox-date">${document.updateTime?datetime}</td>
                                                     <td class="mailbox-date" >
-                                                        <a href="${request.contextPath}/document/updatePage?id=${document.id}" target="_blank"  style="color:gray;" onmouseover="this.style.cssText='color:silver;'" onmouseout="this.style.cssText='color:gray;'" title="修改" ><i class="fa fa-fw fa-wrench"></i></a>
+                                                        <a href="${request.contextPath}/document/updatePage?id=${document.id}" target="_blank"  style="color:gray;" onmouseover="this.style.cssText='color:silver;'" onmouseout="this.style.cssText='color:gray;'" title="修改" ><i class="fa fa-fw fa-wrench"></i>&nbsp;&nbsp;</a>
                                                         <a href="javascript:;" class="deleteDocument" _id="${document.id}" _name="${document.name}" style="color:gray;" onmouseover="this.style.cssText='color:silver;'" onmouseout="this.style.cssText='color:gray;'" title="删除" ><i class="fa fa-fw fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>

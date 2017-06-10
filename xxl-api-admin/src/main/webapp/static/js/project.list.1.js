@@ -18,11 +18,19 @@ $(function() {
 		},
 		"searching": false,
 		"ordering": false,
-		//"scrollX": true,	// X轴滚动条，取消自适应
+		"scrollX": true,	// X轴滚动条，取消自适应
 		"columns": [
 			{ "data": 'id', "bSortable": false, "visible" : false},
-			{ "data": 'name', "bSortable": false, "width":'20%'},
-			{ "data": 'desc', "visible" : true, "width":'20%'},
+			{ "data": 'name', "bSortable": false, "width":'10%',
+				"render": function ( data, type, row ) {
+					// 详情页
+					var goUrl = base_url + '/group?productId='+ row.id;
+					var htm = '';
+					htm += '<a href="' + goUrl + '">' + row.name + '</a>';
+					return htm;
+				}
+			},
+			{ "data": 'desc', "visible" : true, "width":'10%'},
 			{
 				"data": 'permission',
 				"visible" : true,
@@ -40,7 +48,7 @@ $(function() {
 			},
 			{
 				"data": 'baseUrlProduct',
-				"width":'30%',
+				"width":'20%',
 				"visible" : true,
 				"render": function ( data, type, row ) {
 					var htm = '';
@@ -70,9 +78,9 @@ $(function() {
 								' baseUrlQa="'+row.baseUrlQa +'" '+
 								' version="'+row.version +'" '+
 								'>'+
-						    '<button class="btn btn-info btn-xs" type="button" onclick="javascript:window.open(\'' + goUrl + '\')" >进入项目</button>'+
-							'<button class="btn btn-warning btn-xs update" type="button">编辑</button>  '+
-							'<button class="btn btn-danger btn-xs delete" type="button">删除</button>  <br>'+
+							'<button class="btn btn-info btn-xs" type="button" onclick="javascript:window.open(\'' + goUrl + '\')" >进入项目</button>'+
+							'&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-warning btn-xs update" type="button">编辑</button>'+
+							'&nbsp;&nbsp;<button class="btn btn-danger btn-xs delete" type="button">删除</button>  <br>'+								
 							'</p>';
 
 						return html;
