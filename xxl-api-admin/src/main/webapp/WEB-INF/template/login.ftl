@@ -9,7 +9,7 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a><b>XXL</b>API</a>
+			<a><b>SZB</b>API</a>
 		</div>
 		<form id="loginForm" method="post" >
 			<div class="login-box-body">

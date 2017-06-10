@@ -64,7 +64,7 @@
 				<ul class="nav navbar-nav">
 					<li class="dropdown user user-menu">
 	                    <a href=";" id="logoutBtn" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      		<span class="hidden-xs">注销</span>
+                      		<span class="hidden-xs">${XXL_API_LOGIN_IDENTITY.userName} 注销</span>
 	                    </a>
 					</li>
 				</ul>
@@ -96,7 +96,7 @@
 	<footer class="main-footer">
         Powered by <b>XXL-API</b>&nbsp1.0
 		<div class="pull-right hidden-xs">
-            <strong>Copyright &copy; 2015-${.now?string('yyyy')} Modify Source From&nbsp;
+            <strong>Copyright &copy; 2015-${.now?string('yyyy')} Modify Source Code From&nbsp;
                 <a href="https://github.com/huaxuhe/xxl-api" target="_blank" >github</a>&nbsp;
             </strong><!-- All rights reserved. -->
 		</div>

@@ -67,7 +67,10 @@ $(function() {
 	 * 请求参数，删除一行
 	 */
 	$('#queryParams_parent').on('click', '.delete',function () {
-		$(this).parents('.queryParams_item').remove();
+		var obj = $(this);
+		ComConfirm.show("注意啦!!!注意啦!!!-确认删除?", function(){
+			obj.parents('.queryParams_item').remove();
+		});
 	});
 
 	/**
@@ -88,7 +91,10 @@ $(function() {
 	 * 响应结果参数，删除一行
 	 */
 	$('#responseParams_parent').on('click', '.delete',function () {
-		$(this).parents('.responseParams_item').remove();
+		var obj = $(this);
+		ComConfirm.show("注意啦!!!注意啦!!!-确认删除?", function(){
+			obj.parents('.responseParams_item').remove();
+		});
 	});
 
 

@@ -124,14 +124,14 @@
 
                     <div id="queryParams_example" style="display: none;" >
                         <div class="form-group queryParams_item" >
-                            <div class="col-sm-2 item">
+                            <div class="col-sm-1 item">
                                 <select class="form-control select2_tag_new notNull" style="width: 100%;">
                                     <option value="true">必填</option>
                                     <option value="false">非必填</option>
                                 </select>
                             </div>
                             <label class="col-sm-1 control-label">参数类型</label>
-                            <div class="col-sm-2 item">
+                            <div class="col-sm-1 item">
                                 <select class="form-control select2_tag_new type" style="width: 100%;">
                                     <#list QueryParamTypeEnum as item>
                                         <option value="${item}">${item}</option>
@@ -143,7 +143,7 @@
                                 <input type="text" class="form-control name">
                             </div>
                             <label class="col-sm-1 control-label">参考值</label>
-                            <div class="col-sm-2 item">
+                            <div class="col-sm-1 item">
                                 <input type="text" class="form-control val">
                             </div>
                             <label class="col-sm-1 control-label">参数说明</label>
@@ -169,14 +169,14 @@
 
                     <div id="responseParams_example" style="display: none;" >
                         <div class="form-group responseParams_item" >
-                            <div class="col-sm-2 item">
+                            <div class="col-sm-1 item">
                                 <select class="form-control select2_tag_new notNull" style="width: 100%;">
                                     <option value="true">非空</option>
                                     <option value="false">可空</option>
                                 </select>
                             </div>
                             <label class="col-sm-1 control-label">参数类型</label>
-                            <div class="col-sm-2 item">
+                            <div class="col-sm-1 item">
                                 <select class="form-control select2_tag_new type" style="width: 100%;">
                                 <#list QueryParamTypeEnum as item>
                                     <option value="${item}">${item}</option>
@@ -188,7 +188,7 @@
                                 <input type="text" class="form-control name">
                             </div>
                             <label class="col-sm-1 control-label">参考值</label>
-                            <div class="col-sm-2 item">
+                            <div class="col-sm-1 item">
                                 <input type="text" class="form-control val">
                             </div>
                             <label class="col-sm-1 control-label">参数说明</label>
