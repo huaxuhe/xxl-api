@@ -74,8 +74,12 @@
                         </div>
                         <div class="form-group">
                             <label class="col-sm-1 control-label">接口名称</label>
-                            <div class="col-sm-11">
+                            <div class="col-sm-4">
                                 <input type="text" class="form-control" name="name" placeholder="请输入接口名称" maxlength="50" >
+                            </div>
+                            <label class="col-sm-1 control-label">接口描述</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" name="description" placeholder="尽量简单易读，20字以内，更多的信息写在接口备注" maxlength="100" >
                             </div>
                         </div>
                     </div>
