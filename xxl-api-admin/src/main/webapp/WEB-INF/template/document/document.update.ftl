@@ -154,8 +154,8 @@
                         <div class="form-group queryParams_item" >
                             <div class="col-sm-1 item">
                                 <select class="form-control select2_tag_new notNull" style="width: 100%;">
-                                    <option value="true">必填</option>
-                                    <option value="false">非必填</option>
+                                    <option value="true">非空</option>
+                                    <option value="false">可空</option>
                                 </select>
                             </div>
                             <label class="col-sm-1 control-label">参数类型</label>
@@ -188,8 +188,8 @@
                                 <div class="form-group queryParams_item" >
                                     <div class="col-sm-1 item">
                                         <select class="form-control select2_tag notNull" style="width: 100%;">
-                                            <option value="true" <#if queryParam.notNull == "true" >selected</#if> >必填</option>
-                                            <option value="false" <#if queryParam.notNull == "false" >selected</#if> >非必填</option>
+                                            <option value="true" <#if queryParam.notNull == "true" >selected</#if> >非空</option>
+                                            <option value="false" <#if queryParam.notNull == "false" >selected</#if> >可空</option>
                                         </select>
                                     </div>
                                     <label class="col-sm-1 control-label">参数类型</label>
@@ -266,8 +266,8 @@
                                 <div class="form-group responseParams_item" >
                                     <div class="col-sm-1 item">
                                         <select class="form-control select2_tag notNull" style="width: 100%;">
-                                            <option value="true" <#if responseParam.notNull == "true" >selected</#if> >必填</option>
-                                            <option value="false" <#if responseParam.notNull == "false" >selected</#if> >非必填</option>
+                                            <option value="true" <#if responseParam.notNull == "true" >selected</#if> >非空</option>
+                                            <option value="false" <#if responseParam.notNull == "false" >selected</#if> >可空</option>
                                         </select>
                                     </div>
                                     <label class="col-sm-1 control-label">参数类型</label>

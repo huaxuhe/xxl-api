@@ -46,7 +46,7 @@
                                     <option value="0">默认分组</option>
                                     <#if groupList?exists && groupList?size gt 0>
                                         <#list groupList as group>
-                                            <option value="${group.id}">${group.name}</option>
+                                            <option value="${group.id}" <#if group.id == document.groupId>selected</#if>>${group.name}</option>
                                         </#list>
                                     </#if>
                                 </select>
@@ -69,7 +69,7 @@
                             </div>
                             <label class="col-sm-1 control-label">接口URL</label>
                             <div class="col-sm-6">
-                                <input type="text" class="form-control" name="requestUrl" placeholder="请输入接口URL（相对地址）" maxlength="100" >
+                                <input type="text" class="form-control" name="requestUrl" placeholder="请输入接口URL（相对地址）" maxlength="100" value="${document.requestUrl?if_exists}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -159,6 +159,39 @@
                     </div>
 
                     <div class="box-body" id="queryParams_parent" >
+                        <#if queryParamList?exists>
+                            <#list queryParamList as queryParam>
+                                <div class="form-group queryParams_item" >
+                                    <div class="col-sm-1 item">
+                                        <select class="form-control select2_tag notNull" style="width: 100%;">
+                                            <option value="true" <#if queryParam.notNull == "true" >selected</#if> >非空</option>
+                                            <option value="false" <#if queryParam.notNull == "false" >selected</#if> >可空</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label">参数类型</label>
+                                    <div class="col-sm-1 item">
+                                        <select class="form-control select2_tag type" style="width: 100%;">
+                                            <#list QueryParamTypeEnum as item>
+                                                <option value="${item}" <#if queryParam.type == item>selected</#if> >${item}</option>
+                                            </#list>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label">参数名称</label>
+                                    <div class="col-sm-2 item">
+                                        <input type="text" class="form-control name" value="${queryParam.name}" >
+                                    </div>
+                                    <label class="col-sm-1 control-label">参考值</label>
+                                    <div class="col-sm-1 item">
+                                        <input type="text" class="form-control val" value="${queryParam.val}" >
+                                    </div>
+                                    <label class="col-sm-1 control-label">参数说明</label>
+                                    <div class="col-sm-2 item">
+                                        <input type="text" class="form-control desc" value="${queryParam.desc}" >
+                                    </div>
+                                    <button type="button" class="col-sm-1 btn btn-box-tool delete" ><i class="fa fa-fw fa-close"></i></button>
+                                </div>
+                            </#list>
+                        </#if>
                     </div>
                 </div>
 
@@ -204,6 +237,39 @@
                     </div>
 
                     <div class="box-body" id="responseParams_parent" >
+                        <#if responseParamList?exists>
+                            <#list responseParamList as responseParam>
+                                <div class="form-group responseParams_item" >
+                                    <div class="col-sm-1 item">
+                                        <select class="form-control select2_tag notNull" style="width: 100%;">
+                                            <option value="true" <#if responseParam.notNull == "true" >selected</#if> >非空</option>
+                                            <option value="false" <#if responseParam.notNull == "false" >selected</#if> >可空</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label">参数类型</label>
+                                    <div class="col-sm-1 item">
+                                        <select class="form-control select2_tag type" style="width: 100%;">
+                                            <#list QueryParamTypeEnum as item>
+                                                <option value="${item}" <#if responseParam.type == item>selected</#if> >${item}</option>
+                                            </#list>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label">参数名称</label>
+                                    <div class="col-sm-2 item">
+                                        <input type="text" class="form-control name" value="${responseParam.name}" >
+                                    </div>
+                                    <label class="col-sm-1 control-label">参考值</label>
+                                    <div class="col-sm-1 item">
+                                        <input type="text" class="form-control val" value="${responseParam.val}" >
+                                    </div>
+                                    <label class="col-sm-1 control-label">参数说明</label>
+                                    <div class="col-sm-2 item">
+                                        <input type="text" class="form-control desc" value="${responseParam.desc}" >
+                                    </div>
+                                    <button type="button" class="col-sm-1 btn btn-box-tool delete" ><i class="fa fa-fw fa-close"></i></button>
+                                </div>
+                            </#list>
+                        </#if>
                     </div>
                 </div>
                 
@@ -224,7 +290,7 @@
                                     <input type="radio" class="iCheck" name="successRespType" value="${item}" <#if item_index==0>checked</#if> >${item}  &nbsp;&nbsp;
                                 </#list>
                                 <br>
-                                <textarea name="successRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" ></textarea>
+                                <textarea name="successRespExample" style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;margin-top: 15px;" >${document.successRespExample?if_exists}</textarea>
                             </div>
                         </div>
                         <div class="chart tab-pane" id="fail_resp" style="position: relative; height: 365px;">

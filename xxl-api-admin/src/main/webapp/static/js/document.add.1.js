@@ -68,9 +68,9 @@ $(function() {
 	 */
 	$('#queryParams_parent').on('click', '.delete',function () {
 		var obj = $(this);
-		ComConfirm.show("注意啦!!!注意啦!!!-确认删除?", function(){
-			obj.parents('.queryParams_item').remove();
-		});
+		obj.parents('.queryParams_item').remove();
+		//ComConfirm.show("注意啦!!!注意啦!!!-确认删除?", function(){
+		//});
 	});
 
 	/**
@@ -92,9 +92,9 @@ $(function() {
 	 */
 	$('#responseParams_parent').on('click', '.delete',function () {
 		var obj = $(this);
-		ComConfirm.show("注意啦!!!注意啦!!!-确认删除?", function(){
-			obj.parents('.responseParams_item').remove();
-		});
+		obj.parents('.responseParams_item').remove();
+		//ComConfirm.show("注意啦!!!注意啦!!!-确认删除?", function(){
+		//});
 	});
 
 

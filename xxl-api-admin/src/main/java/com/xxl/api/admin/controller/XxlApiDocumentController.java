@@ -51,21 +51,50 @@ public class XxlApiDocumentController {
 	@RequestMapping("/delete")
 	@ResponseBody
 	public ReturnT<String> delete(int id) {
-
+		
 		// 存在Test记录，拒绝删除
 		List<XxlApiTestHistory> historyList = xxlApiTestHistoryDao.loadByDocumentId(id);
 		if (CollectionUtils.isNotEmpty(historyList)) {
 			return new ReturnT<String>(ReturnT.FAIL_CODE, "拒绝删除，该接口下存在Test记录，不允许删除");
 		}
-
+		
 		// 存在Mock记录，拒绝删除
 		List<XxlApiMock> mockList = xxlApiMockDao.loadAll(id);
 		if (CollectionUtils.isNotEmpty(mockList)) {
 			return new ReturnT<String>(ReturnT.FAIL_CODE, "拒绝删除，该接口下存在Mock记录，不允许删除");
 		}
-
+		
 		int ret = xxlApiDocumentDao.delete(id);
 		return (ret>0)?ReturnT.SUCCESS:ReturnT.FAIL;
+	}
+	
+	@RequestMapping("/copy")
+	public String copy(Model model, int id) {
+		// document
+		XxlApiDocument xxlApiDocument = xxlApiDocumentDao.load(id);
+		if (xxlApiDocument == null) {
+			throw new RuntimeException("操作失败，接口ID非法");
+		}
+		model.addAttribute("document", xxlApiDocument);
+		model.addAttribute("requestHeadersList", (StringUtils.isNotBlank(xxlApiDocument.getRequestHeaders()))?JacksonUtil.readValue(xxlApiDocument.getRequestHeaders(), List.class):null );
+		model.addAttribute("queryParamList", (StringUtils.isNotBlank(xxlApiDocument.getQueryParams()))?JacksonUtil.readValue(xxlApiDocument.getQueryParams(), List.class):null );
+		model.addAttribute("responseParamList", (StringUtils.isNotBlank(xxlApiDocument.getResponseParams()))?JacksonUtil.readValue(xxlApiDocument.getResponseParams(), List.class):null );
+
+		// project
+		int projectId = xxlApiDocument.getProjectId();
+		model.addAttribute("productId", projectId);
+
+		// groupList
+		List<XxlApiGroup> groupList = xxlApiGroupDao.loadAll(projectId);
+		model.addAttribute("groupList", groupList);
+
+		// enum
+		model.addAttribute("RequestMethodEnum", RequestConfig.RequestMethodEnum.values());
+		model.addAttribute("requestHeadersEnum", RequestConfig.requestHeadersEnum);
+		model.addAttribute("QueryParamTypeEnum", RequestConfig.QueryParamTypeEnum.values());
+		model.addAttribute("ResponseContentType", RequestConfig.ResponseContentType.values());
+
+		return "document/document.add";
 	}
 
 	/**

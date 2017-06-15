@@ -35,6 +35,7 @@
                         <div class="box-tools pull-right">
                             <button class="btn btn-default btn-xs" type="button" onclick="javascript:window.location.href='${request.contextPath}/group?productId=${productId}'" >返回接口列表</button>
                             <button class="btn btn-default btn-xs" type="button" onclick="javascript:window.location.href='${request.contextPath}/document/updatePage?id=${document.id}'" >修改接口</button>
+                            <button class="btn btn-default btn-xs" type="button" onclick="javascript:window.open('${request.contextPath}/document/copy?id=${document.id}')" >复制接口</button>
                         </div>
                     </div>
 
@@ -88,7 +89,7 @@
                             <div class="col-sm-4">
                                 <a>${document.name}</a>
                             </div>
-                            <label class="col-sm-1">接口名称</label>
+                            <label class="col-sm-1">接口描述</label>
                             <div class="col-sm-6">
                                 <a>${document.description}</a>
                             </div>
@@ -132,7 +133,7 @@
                             <table class="table table-striped">
                                 <tr>
                                     <th style="width: 15%;" >参数名称</th>
-                                    <th style="width: 15%;" >是否必填</th>
+                                    <th style="width: 15%;" >是否非空</th>
                                     <th style="width: 15%;" >参数类型</th>
                                     <th style="width: 15%;" >参考值</th>
                                     <th style="width: 25%;" >参数说明</th>
@@ -141,8 +142,8 @@
                                     <tr>
                                         <td>${queryParam.name}</td>
                                         <td>
-                                            <#if queryParam.notNull == "true" >必填
-                                            <#else>非必填
+                                            <#if queryParam.notNull == "true" >非空
+                                            <#else>可空
                                             </#if>
                                         </td>
                                         <td>${queryParam.type}</td>
@@ -166,7 +167,7 @@
                             <table class="table table-striped">
                                 <tr>
                                     <th style="width: 15%;" >参数名称</th>
-                                    <th style="width: 15%;" >是否必填</th>
+                                    <th style="width: 15%;" >是否非空</th>
                                     <th style="width: 15%;" >参数类型</th>
                                     <th style="width: 15%;" >参考值</th>
                                     <th style="width: 25%;" >参数说明</th>

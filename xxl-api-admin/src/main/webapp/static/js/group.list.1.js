@@ -252,6 +252,15 @@ $(function() {
 		});
 
 	});
+	
+	$(".copyDocument").click(function(){
+		var id = $(this).attr("_id");
+		var name = $(this).attr("_name");
+		ComConfirm.show("确认复制该接口["+name+"]，复制后可参考编辑你需要的接口?", function(){
+			window.open("document/copy?id="+id);
+		});
+
+	});
 
 	/*
 	// 新增-添加参数
